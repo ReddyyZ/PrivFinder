@@ -31,7 +31,7 @@ ${Cyan}[*]${White}Starting...
 
 function get_suid() {
     exploit=($(cat vulns/suid.lst))
-    suid=$(find /root -perm /4000 2>/dev/null)
+    suid=$(find / -perm /4000 2>/dev/null)
     result=()
 
     for i in $suid;do
@@ -48,7 +48,7 @@ function get_suid() {
 
 function get_capabilites() {
     exploit=($(cat vulns/capabilites.lst))
-    capabilites=($(getcap -r /root 2>/dev/null))
+    capabilites=($(getcap -r / 2>/dev/null))
     result=()
 
     for i in "${capabilites[@]}";do
